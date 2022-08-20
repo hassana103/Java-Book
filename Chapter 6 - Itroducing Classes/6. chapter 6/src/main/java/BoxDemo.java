@@ -1,17 +1,16 @@
-// adding a simple constructor
+// adding a Parameterized Constructors
 
 class Box{
     double width;
     double height;
     double depth;
 
-    // constructors are similar to methods syntactically
-    // the name is exactly the class name
-    // it does not need a return type because it returns class type
-    Box(){
-        width = 10;
-        height = 10;
-        depth = 10;
+    // just like methods, constructors can have parameters
+    Box(double w, double h, double d){
+        // we can use the parameters to initialize the instance variables
+        width = w;
+        height = h;
+        depth = d;
     }
 
     double volume(){
@@ -22,9 +21,8 @@ class Box{
 }
 class BoxDemo {
     public static void main(String[] args) {
-        // here we create an object
-        // the 'Box()' actually calls our new constructor
-        Box b1 = new Box();
+        // here we create an object but this time we pass the arguments to the constructor
+        Box b1 = new Box(10 , 20, 15);
 
         //we dont need to set the dimensions this way now
         //b1.width=10;
@@ -38,6 +36,19 @@ class BoxDemo {
         // now we call volume method and store the return value to vol
         double vol = b1.volume();
         System.out.println("volume =" + vol);
+
+
+        // this line of code wont work any more
+        // Box b2 = new Box();
+        // because the Box class does not have a matching constructor any more
+        // but at first we did not have any constructor at all
+        // and still this line worked and created objects for us
+        // why!!!!!!!?
+        // answer: if we dont define a constructor, java makes a default constructor with no parameter for us
+        // but remember, as soon as you create your first constructor for your class,
+        // you cant use the default one any more
+        // that is why we cant use this line of code any more...
+
 
     }
 }
