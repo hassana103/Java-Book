@@ -1,19 +1,22 @@
-// this keyword
-// when we need a method to refer to the object that invoked it we use this keyword
-// we can use this keyword inside constructor too
+// instance variable hiding
+// now you have to use this
 
 class Box{
     double width;
     double height;
     double depth;
 
-    // using this keyword
-    // its redundant but helps to understand that this always refer to current object inside the class
-    // this code works just like the one before it
-    Box(double w, double h, double d){
-        this.width = w;
-        this.height = h;
-        this.depth = d;
+    // when a local variable has the same name of the instance varible
+    // we can say the local variable hided the instance variable
+    // for example the following constructor has three parameters with the same name as instance variable
+    // so in the scope of this constructor if we refer to, for example : width
+    // we can have the parameter one
+    // but what if we want to access the instance variable with the name width
+    // here we can use this keyword like this to refer to instance variables.
+    Box(double width, double height, double depth){
+        this.width = width;
+        this.height = height;
+        this.depth = depth;
     }
 
     double volume(){
